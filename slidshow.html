@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    </head>
+    <style>
+
+    </style>
+    <body>
+        <img id="aaa" src="banner1.jpg" />
+        <button onclick="click1()">Button</button>
+        <script>
+            var image = document.getElementById("aaa");
+            var img_array=["banner2.jpg","banner3.jpg","banner4.jpg", "banner1.jpg"];
+            var index = 0;
+            var num = 0
+            var q = setInterval(slide ,1000);
+            function slide(){   
+                image.src = img_array[index];
+                    index++;
+                if(index >= img_array.length){
+                    index=0;
+                }
+            }
+            setInterval(q);
+            function click1() {
+                num++
+                if(num==1){
+                    clearInterval(q)
+                }
+                else if(num==2){
+                    q = setInterval(slide, 1000)
+                    num = 0   
+                }
+            }
+        </script>
+    </body>
+</html>

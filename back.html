@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+    <head></head>
+    <title>
+
+    </title>
+    <body>
+        <input type="text" id="inp" />
+    <button id="btn" onclick="changeColor()">Click</button>
+    <button id="btn1" onclick="changeInpColor()">Click-inpColor</button>
+    <script>
+        let colors = ["red", "gray", "blue", "yellow"];
+i = 0;
+function changeColor() {
+  document.body.style.backgroundColor = colors[i];
+  i++;
+  if (i === colors.length) {
+    i = 0;
+  }
+}
+function changeInpColor() {
+  var newColor = document.getElementById("inp").value;
+  document.body.style.backgroundColor = newColor;
+  colors.push(newColor);
+
+  console.log(colors);
+}
+    </script>
+    </body>

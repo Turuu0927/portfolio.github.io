@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Танилцуулга</title>
+    </head>
+        <style>
+            .float-left{
+                display: table-cell;
+            }
+            button{
+                height: 50px;
+                width: 80px;
+                
+            }
+            .bugd{
+                margin-left: 103px;
+                font-size: 35px;
+                margin-top: -50px;
+                position: fixed;
+                
+
+            }
+            b{
+                font-size: 40px;
+                margin-left: 75px;
+            }
+            #lap{
+                margin-left: 102px;
+                font-size: 35px;
+                margin-top: 70px;
+            }
+            .tom{
+                border: 1px solid black;
+                height: 350px;
+                width: 349px;
+                overflow-y: scroll;
+                margin-top: 58px;
+            }
+            .bbb{
+                position: fixed;
+            }
+        </style>
+    <body>
+        <b>Stopwatch</b>
+        <div class = "tom">
+            <div class ="bugd">
+                <div id = "minuts" class = "float-left">00:</div>
+                <div id = "secunds" class = "float-left">00:</div>
+                <div id = "doils" class = "float-left">00 </div>
+            </div>
+            <div class = "bbb">
+                <button onclick="start()">Start</button>
+                <button onclick="stop()">Stop</button>
+                <button onclick="reset()">Reset</button>
+                <button onclick="lap()">Lap</button>
+            </div>
+        
+             <div id = "lap"></div>
+        </div>
+        <script>
+            var minuts = document.getElementById('minuts')
+            var secunds = document.getElementById('secunds')
+            var doils = document.getElementById('doils')
+            var minut = 0
+            var sec = 0 
+            var milsec = 0
+            var intervalId = 0
+            var q = setInterval(doil, 10)
+            var a = clearInterval(q)
+            function doil() {
+                doils.innerHTML = ":" + milsec
+                milsec++
+                if(milsec === 100){
+                    milsec = 0    
+                    sec = ++sec
+                    secunds.innerHTML =   sec
+                }
+                else if(sec == 60){
+                    sec = 0
+                    minut = ++minut
+                    minuts.innerHTML = minut + ":"
+                }   
+                else if (sec < 10){
+                    secunds.innerHTML = "0" + sec
+                }
+                else if (minut < 10){
+                    minuts.innerHTML = "0" + minut + ":"
+                }
+                clearInterval(q)
+            }
+            function start(){
+                if(intervalId == 0){
+                    intervalId = setInterval(doil, 10)
+                }
+                
+            }
+            function stop(){
+                clearInterval(intervalId)
+                intervalId = 0
+            }
+            function reset(){
+                minut = 0
+                sec = 0 
+                milsec = 0
+                doils.innerHTML = "00"
+                secunds.innerHTML = "00"
+                minuts.innerHTML = "00:" 
+            }
+            function lap(){
+                var p = document.createElement("p")
+                p.innerHTML = minuts.innerHTML  + secunds.innerHTML  + doils.innerHTML
+                document.getElementById("lap").appendChild(p)
+            }
+        </script>
+    </body>
+</html>                

@@ -1,0 +1,38 @@
+.float-left{
+    display: table-cell;
+}
+button{
+    height: 50px;
+    width: 80px;
+    
+}
+.bugd{
+    margin-left: 103px;
+    font-size: 35px;
+    margin-top: -50px;
+    position: fixed;
+    
+
+}
+b{
+    font-size: 40px;
+    margin-left: 75px;
+}
+#lap{
+    margin-left: 102px;
+    font-size: 35px;
+    margin-top: 70px;
+}
+.tom{
+    border: 1px solid black;
+    height: 350px;
+    width: 349px;
+    overflow-y: scroll;
+    margin-top: 58px;
+}
+.bbb{
+    position: fixed;
+}
+body{
+    background-color: red !important;
+}

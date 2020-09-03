@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TodoList</title>
+        <meta charset="utf-8">
+    </head>
+    <style>
+        input{
+            height: 100px;
+            width: 600px;
+            margin-left: 10px;
+        }
+        #b1{
+            height: 106px;
+            width: 100px;
+        }
+       .tom{
+            border: 1px solid black;
+            width: 746px;
+            height: 400px;
+            background-color: red;
+            overflow-y: scroll;
+            position: fixed;
+        }
+       
+    </style>
+    <body>
+        <div class = "tom">
+        <input type="text" id="input">
+            <button onclick="click1()" id = "b1">+</button>
+        <div id ="item">
+            
+        </div>
+        </div>
+        <script>
+            var input = document.getElementById('input')
+            function click1(){
+                var p = document.createElement("p")
+                var b = document.createElement('button');
+                b.style.position = "absolute"
+                b.style.marginTop = "-37px" 
+                b.style.marginLeft = "650px"
+                b.innerHTML = "X"
+                p.innerHTML =  input.value
+                b.onclick = function(){
+                    p.style.display = "none"
+                    b.style.display = "none"
+                }
+                document.getElementById("item").append(p, b)
+            }
+        </script>
+    </body>
+</html>

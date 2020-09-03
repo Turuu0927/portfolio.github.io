@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <input id = "input" type="search">
+        <p>Search john</p>
+        
+        <script>
+            async function getJson(){       
+                var response = await fetch("https://api.giphy.com/v1/gifs/search?api_key=KDKgTX5P7Bvr4pY49vaXLYYQZmFEXeBK&q=johnmayer&limit=25&offset=0&rating=g&lang=en")
+                var data = await response.json()
+                var i
+                var input = document.getElementById('input')
+                var b = document.createElement('button');
+                    document.body.append(b)
+                    b.innerHTML = "Хайх"
+                    b.onclick = function(){
+                        if(input.value == "john"){
+                            for (i = 0 ; i < data.data[i].images.downsized_medium.url.length ; i++) {
+                                var myImg = document.createElement("img")
+                                myImg.src = data.data[i].images.downsized_medium.url
+                                document.body.append(myImg)
+                            }
+                        }
+                    }
+            }
+            getJson()
+            
+           
+        </script>
+    </body>
+</html>
